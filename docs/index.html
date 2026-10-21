@@ -38,7 +38,7 @@
   a { color: inherit; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 
-  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  nav { flex-wrap: wrap; gap: 12px; display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
   .marca { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; }
   .marca img { width: 32px; height: 32px; border-radius: 8px; }
   .nav-links { display: flex; gap: 20px; align-items: center; font-size: 14px; color: var(--sub); }
@@ -56,7 +56,7 @@
           padding: 6px 14px; border-radius: 999px; font-size: 13px; color: var(--sub); }
   .selo b { color: var(--accent); }
   h1 { font-size: clamp(38px, 7vw, 68px); line-height: 1.05; letter-spacing: -0.03em; margin: 22px 0 14px; font-weight: 800; }
-  h1 span { background: linear-gradient(120deg, var(--accent), #e9a37f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h1 .accent { background: linear-gradient(120deg, var(--accent), #e9a37f); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--sub); max-width: 640px; margin: 0 auto; }
   .acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 34px 0 10px; }
   .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 14px; font-weight: 700;
@@ -116,157 +116,80 @@
   <nav>
     <a class="marca" href="#"><img src="icone.png" alt="">Multi Claude</a>
     <div class="nav-links">
-      <a class="esconde" href="#recursos">Features</a>
-      <a class="esconde" href="#como">How it works</a>
+      <a class="esconde" href="#recursos" data-i18n="features">Features</a>
+      <a class="esconde" href="#como" data-i18n="how">How it works</a>
       <a href="https://github.com/RichardKPL/multi-claude">GitHub</a>
-      <div class="language-picker"><img id="idioma-bandeira" src="https://flags.restcountries.com/v5/w160/gb.png" alt="" onerror="this.src='img/flags/en.svg'"><label class="sr-only" for="idioma">Language</label><select id="idioma" aria-label="Language">
+      <div class="language-picker"><img id="idioma-bandeira" src="https://flags.restcountries.com/v5/w160/gb.png" alt="" onerror="this.src='img/flags/en.svg'"><label class="sr-only" for="idioma" data-i18n="language">Language</label><select id="idioma" data-i18n-aria="language" aria-label="Language">
         <option value="pt">Português</option><option value="en">English</option><option value="es">Español</option>
         <option value="fr">Français</option><option value="de">Deutsch</option><option value="it">Italiano</option>
         <option value="ru">Русский</option><option value="ja">日本語</option><option value="zh">中文</option><option value="ko">한국어</option>
       </select></div>
-      <button id="tema" aria-label="Alternar tema" title="Alternar tema">◐</button>
+      <button id="tema" data-i18n-aria="theme" data-i18n-title="theme" aria-label="Toggle theme" title="Toggle theme">◐</button>
     </div>
   </nav>
 
   <header class="hero">
-    <div class="selo">🆓 Free · <b>Open source</b> · Portable</div>
-    <h1>Multiple Claude accounts.<br><span>At the same time.</span></h1>
-    <p class="lead">Multi Claude opens each Claude Desktop account in its own window, with separate sign-ins, sessions and settings. One <code>.exe</code>, no installation.</p>
+    <div class="selo" data-i18n="badge">Free · Open source · Portable</div>
+    <h1><span data-i18n="headline">Multiple Claude accounts.</span><br><span class="accent" data-i18n="headlineAccent">At the same time.</span></h1>
+    <p class="lead" data-i18n="lead">Multi Claude opens each Claude Desktop account in its own window, with separate sign-ins, sessions and settings. One .exe, no installation.</p>
     <div class="acoes">
       <a class="btn btn-principal" id="baixar" href="https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe">
-        ⬇ Download for Windows <small id="versao">portable · .exe</small>
+        ⬇ <span data-i18n="download">Download for Windows</span> <small id="versao">portable · .exe</small>
       </a>
-      <a class="btn btn-sec" href="https://github.com/RichardKPL/multi-claude">★ Ver no GitHub</a>
+      <a class="btn btn-sec" href="https://github.com/RichardKPL/multi-claude">★ <span data-i18n="github">View on GitHub</span></a>
     </div>
-    <div class="info-dl">Windows 10 and 11 · requires <a href="https://claude.ai/download">Claude Desktop</a></div>
-    <div class="vitrine"><img data-screenshot="principal-claro.png" src="img/en/principal-claro.png" alt="Multi Claude" loading="eager"></div>
+    <div class="info-dl"><a href="https://claude.ai/download" data-i18n="requirements">Windows 10 and 11 · requires Claude Desktop</a></div>
+    <div class="vitrine"><img data-screenshot="principal-claro.png" src="img/en/principal-claro.png" data-i18n-alt="mainAlt" alt="Multi Claude main window" loading="eager"></div>
   </header>
 
   <section id="recursos">
-    <h2>Everything you need</h2>
-    <p class="sub-h2">Built for people who use more than one Claude account — personal, work or school.</p>
+    <h2 data-i18n="featuresTitle">Everything you need</h2>
+    <p class="sub-h2" data-i18n="featuresIntro">Built for people who use more than one Claude account — personal, work or school.</p>
     <div class="grade">
-      <div class="card"><div class="ic">👥</div><h3>Unlimited profiles</h3><p>Each profile is an isolated Claude Desktop with its own sign-in and sessions.</p></div>
-      <div class="card"><div class="ic">🔐</div><h3>Automatic Google sign-in</h3><p>Choose an account in your browser and sign-in goes to the right profile.</p></div>
-      <div class="card"><div class="ic">🟢</div><h3>Live status</h3><p>See what is connected and open. Open, close or sign out with one click.</p></div>
-      <div class="card"><div class="ic">🖼️</div><h3>Profile pictures</h3><p>Built-in gallery or your own images — any image in the folder becomes an option.</p></div>
-      <div class="card"><div class="ic">🎨</div><h3>Light, Dark or System</h3><p>Follows the Windows theme live, including the title bar.</p></div>
-      <div class="card"><div class="ic">🌍</div><h3>10 languages</h3><p>Português, English, Español, Français, Deutsch, Italiano, Русский, 日本語, 中文, 한국어.</p></div>
-      <div class="card"><div class="ic">📦</div><h3>Fully portable</h3><p>All data lives next to the <code>.exe</code>. Carry it on a USB drive.</p></div>
-      <div class="card"><div class="ic">⇩</div><h3>Imports existing profiles</h3><p>Finds Claude profiles already on your computer and imports them in seconds.</p></div>
+      <div class="card"><div class="ic">👥</div><h3 data-i18n="profiles">Unlimited profiles</h3><p data-i18n="profilesBody">Each profile is an isolated Claude Desktop with its own sign-in and sessions.</p></div>
+      <div class="card"><div class="ic">🔐</div><h3 data-i18n="google">Automatic Google sign-in</h3><p data-i18n="googleBody">Choose an account in your browser and sign-in goes to the right profile.</p></div>
+      <div class="card"><div class="ic">🟢</div><h3 data-i18n="status">Live status</h3><p data-i18n="statusBody">See what is connected and open. Open, close or sign out with one click.</p></div>
+      <div class="card"><div class="ic">🖼️</div><h3 data-i18n="pictures">Profile pictures</h3><p data-i18n="picturesBody">Built-in gallery or your own images — any image in the folder becomes an option.</p></div>
+      <div class="card"><div class="ic">🎨</div><h3 data-i18n="themes">Light, Dark or System</h3><p data-i18n="themesBody">Follows the Windows theme live, including the title bar.</p></div>
+      <div class="card"><div class="ic">🌍</div><h3 data-i18n="languages">10 languages</h3><p>Português, English, Español, Français, Deutsch, Italiano, Русский, 日本語, 中文, 한국어.</p></div>
+      <div class="card"><div class="ic">📦</div><h3 data-i18n="portableTitle">Fully portable</h3><p data-i18n="portableBody">All data lives next to the .exe. Carry it on a USB drive.</p></div>
+      <div class="card"><div class="ic">⇩</div><h3 data-i18n="import">Imports existing profiles</h3><p data-i18n="importBody">Finds Claude profiles already on your computer and imports them in seconds.</p></div>
     </div>
   </section>
 
   <section id="como">
-    <h2>Three simple steps</h2>
-    <p class="sub-h2">From download to a second account in less than a minute.</p>
+    <h2 data-i18n="stepsTitle">Three simple steps</h2>
+    <p class="sub-h2" data-i18n="stepsIntro">From download to a second account in less than a minute.</p>
     <div class="passos">
-      <div class="passo"><div><b>Download and open</b><span>Put the <code>.exe</code> in its own folder. Choose your language on first launch.</span></div></div>
-      <div class="passo"><div><b>Create a profile</b><span>Give it a name, choose a picture and click <b style="display:inline">Sign in</b>.</span></div></div>
-      <div class="passo"><div><b>Choose the account</b><span>Continue with Google in your browser. If asked, click “Open Claude”. Done.</span></div></div>
+      <div class="passo"><div><b data-i18n="step1">Download and open</b><span data-i18n="step1Body">Put the .exe in its own folder. Choose your language on first launch.</span></div></div>
+      <div class="passo"><div><b data-i18n="step2">Create a profile</b><span data-i18n="step2Body">Give it a name, choose a picture and click “Sign in”.</span></div></div>
+      <div class="passo"><div><b data-i18n="step3">Choose the account</b><span data-i18n="step3Body">Continue with Google in your browser. If asked, click “Open Claude”. Done.</span></div></div>
     </div>
   </section>
 
   <section>
-    <h2>Take a look inside</h2>
-    <p class="sub-h2">A clean interface in both themes.</p>
+    <h2 data-i18n="galleryTitle">Take a look inside</h2>
+    <p class="sub-h2" data-i18n="galleryIntro">A clean interface in both themes.</p>
     <div class="galeria">
-      <figure><img data-screenshot="principal-escuro.png" src="img/en/principal-escuro.png" alt="Dark theme" loading="lazy"><figcaption>Dark theme</figcaption></figure>
-      <figure><img data-screenshot="fotos.png" src="img/en/fotos.png" alt="Profile pictures" loading="lazy"><figcaption>Profile pictures</figcaption></figure>
-      <figure><img data-screenshot="boas-vindas.png" src="img/en/boas-vindas.png" alt="Welcome screen" loading="lazy"><figcaption>First launch</figcaption></figure>
+      <figure><img data-screenshot="principal-escuro.png" src="img/en/principal-escuro.png" data-i18n-alt="dark" alt="Dark theme" loading="lazy"><figcaption data-i18n="dark">Dark theme</figcaption></figure>
+      <figure><img data-screenshot="fotos.png" src="img/en/fotos.png" data-i18n-alt="pictures" alt="Profile pictures" loading="lazy"><figcaption data-i18n="pictures">Profile pictures</figcaption></figure>
+      <figure><img data-screenshot="boas-vindas.png" src="img/en/boas-vindas.png" data-i18n-alt="welcome" alt="First launch" loading="lazy"><figcaption data-i18n="welcome">First launch</figcaption></figure>
     </div>
   </section>
 
   <div class="cta">
-    <h2>Ready to use more than one account?</h2>
-    <p>Free, open source and with no installation.</p>
-    <a class="btn" href="https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe">⬇ Download Multi Claude</a>
+    <h2 data-i18n="ctaTitle">Ready to use more than one account?</h2>
+    <p data-i18n="ctaBody">Free, open source and with no installation.</p>
+    <a class="btn" href="https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe">⬇ <span data-i18n="ctaDownload">Download Multi Claude</span></a>
   </div>
 
   <footer>
-    <div>Multi Claude © 2026 <a href="https://github.com/RichardKPL">Richard KPL</a> · <a href="https://github.com/RichardKPL/multi-claude/blob/main/LICENSE">GPL-3.0</a> · <a href="https://github.com/RichardKPL/multi-claude">Source code</a></div>
-    <p class="aviso">"Claude" and "Claude Desktop" are trademarks of Anthropic, PBC. Multi Claude is an independent project, not affiliated with, endorsed by or sponsored by Anthropic.</p>
+    <div>Multi Claude © 2026 <a href="https://github.com/RichardKPL">Richard KPL</a> · <a href="https://github.com/RichardKPL/multi-claude/blob/main/LICENSE">GPL-3.0</a> · <a href="https://github.com/RichardKPL/multi-claude" data-i18n="source">Source code</a></div>
+    <p class="aviso" data-i18n="disclaimer">"Claude" and "Claude Desktop" are trademarks of Anthropic, PBC. Multi Claude is an independent project, not affiliated with, endorsed by or sponsored by Anthropic.</p>
   </footer>
 </div>
 
-<script>
-  // Detect the browser language on first visit, with English as the fallback.
-  (function () {
-    var picker = document.getElementById("idioma");
-    var flag = document.getElementById("idioma-bandeira");
-    var supported = ["pt", "en", "es", "fr", "de", "it", "ru", "ja", "zh", "ko"];
-    var stored = null;
-    try { stored = localStorage.getItem("site-language"); } catch (e) {}
-    var browser = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
-    var browserCode = browser.toLowerCase().split("-")[0].split("_")[0];
-    var initial = stored && supported.indexOf(stored) >= 0 ? stored : (supported.indexOf(browserCode) >= 0 ? browserCode : "en");
-    var translations = {
-      pt: {"Features":"Recursos","How it works":"Como usar","Everything you need":"Tudo o que você precisa","Built for people who use more than one Claude account — personal, work or school.":"Feito para quem usa mais de uma conta do Claude — pessoal, trabalho ou estudos.","Three simple steps":"Em três passos","From download to a second account in less than a minute.":"Do download à segunda conta aberta em menos de um minuto.","Take a look inside":"Por dentro","A clean interface in both themes.":"Interface limpa nos dois temas.","Ready to use more than one account?":"Pronto para usar mais de uma conta?","Download for Windows":"Baixar para Windows","Download Multi Claude":"Baixar Multi Claude","Source code":"Código-fonte","Sign in":"Entrar","Download and open":"Baixe e abra","Put the .exe in its own folder. Choose your language on first launch.":"Coloque o .exe em uma pasta só dele. Na primeira vez, escolha o idioma.","Create a profile":"Crie um perfil","Give it a name, choose a picture and click":"Dê um nome, escolha uma foto e clique em","Choose the account":"Escolha a conta","Continue with Google in your browser. If asked, click “Open Claude”. Done.":"Continue com Google no navegador. Se ele perguntar, clique em “Abrir Claude”. Pronto.","Light, Dark or System":"Claro, Escuro ou Sistema","Follows the Windows theme live, including the title bar.":"Acompanha o tema do Windows ao vivo, até a barra de título.","Fully portable":"100% portátil","All data lives next to the .exe. Carry it on a USB drive.":"Todos os dados ficam ao lado do .exe. Leve num pendrive.","Imports existing profiles":"Importa perfis existentes","Finds Claude profiles already on your computer and imports them in seconds.":"Encontra perfis do Claude que já estão na máquina e importa em segundos.","Automatic Google sign-in":"Login com Google automático","Choose an account in your browser and sign-in goes to the right profile.":"Escolha a conta no navegador e o login vai direto para o perfil certo.","Live status":"Status ao vivo","See what is connected and open. Open, close or sign out with one click.":"Veja o que está conectado e aberto. Abra, feche ou saia da conta com um clique.","Profile pictures":"Fotos de perfil","Built-in gallery or your own images — any image in the folder becomes an option.":"Galeria inclusa ou suas próprias imagens — qualquer imagem da pasta vira opção.","Unlimited profiles":"Perfis ilimitados","Each profile is an isolated Claude Desktop with its own sign-in and sessions.":"Cada perfil é um Claude Desktop isolado, com seus próprios logins e sessões.","Dark theme":"Tema escuro","First launch":"Primeira abertura","Free":"Gratuito","Open source":"Código aberto","Portable":"Portátil","Multiple Claude accounts.":"Várias contas do Claude.","At the same time.":"Ao mesmo tempo."},
-      es: {"Features":"Funciones","How it works":"Cómo funciona","Everything you need":"Todo lo que necesitas","Three simple steps":"Tres pasos sencillos","Take a look inside":"Mira por dentro","Ready to use more than one account?":"¿Listo para usar más de una cuenta?","Download for Windows":"Descargar para Windows","Download Multi Claude":"Descargar Multi Claude","Source code":"Código fuente","Sign in":"Iniciar sesión","Dark theme":"Tema oscuro","Profile pictures":"Fotos de perfil","First launch":"Primera apertura","Free":"Gratis","Open source":"Código abierto","Portable":"Portátil","Multiple Claude accounts.":"Varias cuentas de Claude.","At the same time.":"Al mismo tiempo."},
-      fr: {"Features":"Fonctionnalités","How it works":"Comment ça marche","Everything you need":"Tout ce dont vous avez besoin","Three simple steps":"Trois étapes simples","Take a look inside":"Découvrez l’intérieur","Ready to use more than one account?":"Prêt à utiliser plusieurs comptes ?","Download for Windows":"Télécharger pour Windows","Download Multi Claude":"Télécharger Multi Claude","Source code":"Code source","Sign in":"Se connecter","Dark theme":"Thème sombre","Profile pictures":"Photos de profil","First launch":"Premier lancement","Free":"Gratuit","Open source":"Open source","Portable":"Portable","Multiple Claude accounts.":"Plusieurs comptes Claude.","At the same time.":"En même temps."},
-      de: {"Features":"Funktionen","How it works":"So funktioniert es","Everything you need":"Alles, was du brauchst","Three simple steps":"Drei einfache Schritte","Take a look inside":"Ein Blick ins Innere","Ready to use more than one account?":"Bereit für mehrere Konten?","Download for Windows":"Für Windows herunterladen","Download Multi Claude":"Multi Claude herunterladen","Source code":"Quellcode","Sign in":"Anmelden","Dark theme":"Dunkles Design","Profile pictures":"Profilbilder","First launch":"Erster Start","Free":"Kostenlos","Open source":"Open Source","Portable":"Portabel","Multiple Claude accounts.":"Mehrere Claude-Konten.","At the same time.":"Gleichzeitig."},
-      it: {"Features":"Funzionalità","How it works":"Come funziona","Everything you need":"Tutto ciò che ti serve","Three simple steps":"Tre semplici passaggi","Take a look inside":"Guarda dentro","Ready to use more than one account?":"Pronto a usare più account?","Download for Windows":"Scarica per Windows","Download Multi Claude":"Scarica Multi Claude","Source code":"Codice sorgente","Sign in":"Accedi","Dark theme":"Tema scuro","Profile pictures":"Immagini del profilo","First launch":"Primo avvio","Free":"Gratuito","Open source":"Open source","Portable":"Portatile","Multiple Claude accounts.":"Più account Claude.","At the same time.":"Allo stesso tempo."},
-      ru: {"Features":"Возможности","How it works":"Как это работает","Everything you need":"Всё необходимое","Three simple steps":"Три простых шага","Take a look inside":"Загляните внутрь","Ready to use more than one account?":"Готовы использовать несколько аккаунтов?","Download for Windows":"Скачать для Windows","Download Multi Claude":"Скачать Multi Claude","Source code":"Исходный код","Sign in":"Войти","Dark theme":"Тёмная тема","Profile pictures":"Изображения профиля","First launch":"Первый запуск","Free":"Бесплатно","Open source":"Открытый исходный код","Portable":"Портативный","Multiple Claude accounts.":"Несколько аккаунтов Claude.","At the same time.":"Одновременно."},
-      ja: {"Features":"機能","How it works":"使い方","Everything you need":"必要なものがすべて揃っています","Three simple steps":"3つの簡単な手順","Take a look inside":"中を見てみる","Ready to use more than one account?":"複数のアカウントを使いませんか？","Download for Windows":"Windows版をダウンロード","Download Multi Claude":"Multi Claudeをダウンロード","Source code":"ソースコード","Sign in":"サインイン","Dark theme":"ダークテーマ","Profile pictures":"プロフィール画像","First launch":"初回起動","Free":"無料","Open source":"オープンソース","Portable":"ポータブル","Multiple Claude accounts.":"複数のClaudeアカウント。","At the same time.":"同時に。"},
-      zh: {"Features":"功能","How it works":"使用方法","Everything you need":"你需要的一切","Three simple steps":"三个简单步骤","Take a look inside":"看看内部","Ready to use more than one account?":"准备好使用多个账户了吗？","Download for Windows":"下载 Windows 版","Download Multi Claude":"下载 Multi Claude","Source code":"源代码","Sign in":"登录","Dark theme":"深色主题","Profile pictures":"个人头像","First launch":"首次启动","Free":"免费","Open source":"开源","Portable":"便携","Multiple Claude accounts.":"多个 Claude 账户。","At the same time.":"同时运行。"},
-      ko: {"Features":"기능","How it works":"사용 방법","Everything you need":"필요한 모든 것","Built for people who use more than one Claude account — personal, work or school.":"개인, 업무 또는 학업 등 여러 Claude 계정을 사용하는 사람을 위해 만들어졌습니다.","Three simple steps":"간단한 3단계","From download to a second account in less than a minute.":"다운로드부터 두 번째 계정 실행까지 1분도 걸리지 않습니다.","Take a look inside":"내부 살펴보기","A clean interface in both themes.":"밝은 테마와 어두운 테마 모두 깔끔한 인터페이스를 제공합니다.","Ready to use more than one account?":"여러 계정을 사용할 준비가 되셨나요?","Download for Windows":"Windows용 다운로드","Download Multi Claude":"Multi Claude 다운로드","Source code":"소스 코드","Sign in":"로그인","Download and open":"다운로드 후 실행","Put the .exe in its own folder. Choose your language on first launch.":".exe 파일을 전용 폴더에 넣으세요. 처음 실행할 때 언어를 선택합니다.","Create a profile":"프로필 만들기","Give it a name, choose a picture and click":"이름과 사진을 정한 다음 클릭하세요:","Choose the account":"계정 선택","Continue with Google in your browser. If asked, click “Open Claude”. Done.":"브라우저에서 Google로 계속하세요. 묻는 경우 “Open Claude”를 클릭하면 됩니다.","Light, Dark or System":"밝게, 어둡게 또는 시스템","Follows the Windows theme live, including the title bar.":"제목 표시줄을 포함해 Windows 테마를 실시간으로 따릅니다.","Fully portable":"완전한 포터블","All data lives next to the .exe. Carry it on a USB drive.":"모든 데이터가 .exe 옆에 저장됩니다. USB 드라이브에 담아 사용할 수 있습니다.","Imports existing profiles":"기존 프로필 가져오기","Finds Claude profiles already on your computer and imports them in seconds.":"컴퓨터에 이미 있는 Claude 프로필을 찾아 몇 초 만에 가져옵니다.","Automatic Google sign-in":"Google 자동 로그인","Choose an account in your browser and sign-in goes to the right profile.":"브라우저에서 계정을 선택하면 올바른 프로필로 로그인됩니다.","Live status":"실시간 상태","See what is connected and open. Open, close or sign out with one click.":"연결 및 실행 상태를 확인하고 한 번의 클릭으로 열고 닫거나 로그아웃할 수 있습니다.","Profile pictures":"프로필 사진","Built-in gallery or your own images — any image in the folder becomes an option.":"기본 갤러리 또는 내 이미지를 사용할 수 있습니다.","Unlimited profiles":"무제한 프로필","Each profile is an isolated Claude Desktop with its own sign-in and sessions.":"각 프로필은 별도의 로그인과 세션을 사용하는 독립적인 Claude Desktop입니다.","Dark theme":"어두운 테마","First launch":"첫 실행","Free":"무료","Open source":"오픈 소스","Portable":"포터블","Multiple Claude accounts.":"여러 Claude 계정.","At the same time.":"동시에."}
-    };
-    var originalText = [];
-    function setLanguage(lang) {
-      // English is the fallback copy for languages not yet translated on the website.
-      var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-      var node, index = 0, table = translations[lang] || {};
-      while ((node = walker.nextNode())) {
-        if (!originalText[index]) originalText[index] = node.nodeValue;
-        var value = originalText[index].trim();
-        if (table[value]) node.nodeValue = originalText[index].replace(value, table[value]);
-        else node.nodeValue = originalText[index];
-        index++;
-      }
-      document.documentElement.lang = lang;
-      picker.value = lang;
-      document.querySelectorAll("img[data-screenshot]").forEach(function (img) {
-        var locale = supported.indexOf(lang) >= 0 ? lang : "en";
-        var fallback = "img/en/" + img.dataset.screenshot;
-        img.onerror = function () {
-          // Fall back once, without an error loop if the English asset fails too.
-          this.onerror = null;
-          this.src = fallback;
-        };
-        img.src = "img/" + locale + "/" + img.dataset.screenshot;
-      });
-      var country = {pt:"br", en:"gb", es:"es", fr:"fr", de:"de", it:"it", ru:"ru", ja:"jp", zh:"cn", ko:"kr"};
-      flag.onerror = function () { this.onerror = null; this.src = "img/flags/en.svg"; };
-      flag.src = "https://flags.restcountries.com/v5/w160/" + (country[lang] || "gb") + ".png";
-      try { localStorage.setItem("site-language", lang); } catch (e) {}
-    }
-    picker.addEventListener("change", function () { setLanguage(this.value); });
-    setLanguage(initial);
-  })();
-  // Tema: segue o sistema; o botão alterna e lembra a escolha.
-  (function () {
-    var raiz = document.documentElement, salvo = null;
-    try { salvo = localStorage.getItem("tema"); } catch (e) {}
-    if (salvo) raiz.setAttribute("data-theme", salvo);
-    document.getElementById("tema").addEventListener("click", function () {
-      var escuro = raiz.getAttribute("data-theme") ? raiz.getAttribute("data-theme") === "dark"
-        : matchMedia("(prefers-color-scheme: dark)").matches;
-      var novo = escuro ? "light" : "dark";
-      raiz.setAttribute("data-theme", novo);
-      try { localStorage.setItem("tema", novo); } catch (e) {}
-    });
-  })();
-  // Mostra a versão e o tamanho do último release.
-  fetch("https://api.github.com/repos/RichardKPL/multi-claude/releases/latest")
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (rel) {
-      if (!rel) return;
-      var exe = (rel.assets || []).filter(function (a) { return /\.exe$/i.test(a.name); })[0];
-      var mb = exe ? " · " + (exe.size / 1048576).toFixed(0) + " MB" : "";
-      document.getElementById("versao").textContent = rel.tag_name + " · portátil" + mb;
-      if (exe) document.getElementById("baixar").href = exe.browser_download_url;
-    })
-    .catch(function () {});
-</script>
+<script src="locales.js"></script>
+<script src="site.js"></script>
 </body>
 </html>
