@@ -4,133 +4,116 @@
 
 # Multi Claude
 
-**Várias contas do Claude Desktop, cada uma na sua janela — ao mesmo tempo.**
+**Run several Claude Desktop accounts side by side — each one in its own window.**
 
 [![Download](https://img.shields.io/github/v/release/RichardKPL/multi-claude?label=download&color=d97757&style=for-the-badge)](https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe)
-[![Licença GPL-3.0](https://img.shields.io/badge/licen%C3%A7a-GPL--3.0-1f1e1d?style=for-the-badge)](LICENSE)
-[![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078d4?style=for-the-badge&logo=windows)](#requisitos)
-[![Portátil](https://img.shields.io/badge/port%C3%A1til-sem%20instala%C3%A7%C3%A3o-5fa85e?style=for-the-badge)](#download)
+[![License GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-1f1e1d?style=for-the-badge)](LICENSE)
+[![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078d4?style=for-the-badge&logo=windows)](#requirements)
+[![Portable](https://img.shields.io/badge/portable-no%20install-5fa85e?style=for-the-badge)](#download)
 
-[**Site**](https://richardkpl.github.io/multi-claude/) ·
+[**Website**](https://richardkpl.github.io/multi-claude/) ·
 [**Download**](https://github.com/RichardKPL/multi-claude/releases/latest) ·
-[**Como funciona**](#como-funciona) ·
-[**English**](#english)
+[**How it works**](#how-it-works) ·
+[**License**](#license--credits)
 
-<img src="docs/img/principal-claro.png" alt="Tela principal do Multi Claude" width="860">
+<img src="docs/img/principal-claro.png" alt="Multi Claude main window" width="860">
 
 </div>
 
 ---
 
-## ✨ Recursos
+## ✨ Features
 
 | | |
 |---|---|
-| 👥 **Perfis ilimitados** | Cada perfil é um Claude Desktop separado, com login, sessões e configurações próprias. |
-| 🔐 **Login com Google automático** | Clique em *Entrar*, escolha a conta no navegador e pronto — o login vai para o perfil certo, sem abrir o Claude principal. |
-| 🟢 **Status ao vivo** | Veja quais perfis estão conectados e quais estão abertos; abra e feche cada um com um clique. |
-| 🖼️ **Fotos de perfil** | Galeria inclusa + envio das suas imagens. Qualquer imagem na pasta `profile_pictures` vira opção. |
-| 🎨 **Claro, Escuro ou Sistema** | Acompanha o tema do Windows ao vivo, inclusive a barra de título. |
-| 🌍 **10 idiomas** | Português, English, Español, Français, Deutsch, Italiano, Русский, 日本語, 中文, 한국어. |
-| 📦 **100% portátil** | Um único `.exe`. Todos os dados ficam ao lado dele — leve num pendrive. |
-| ⇩ **Importar perfis** | Encontra perfis do Claude que já existem na máquina (ou outro `perfis.db`) e importa. |
-| 🧨 **Zona de perigo** | Apaga todos os dados do Multi Claude com uma confirmação digitada. |
-| 📐 **Layout responsivo** | Uma ou duas colunas conforme o tamanho da janela; lembra posição e tamanho. |
+| 👥 **Unlimited profiles** | Every profile is a separate Claude Desktop with its own sign-in, sessions and settings. |
+| 🔐 **Automatic Google sign-in** | Click *Sign in*, pick the account in your browser and you're done — the sign-in lands in the right profile without popping up your main Claude. |
+| 🟢 **Live status** | See which profiles are signed in and which are open; open and close each one with a single click. |
+| 🖼️ **Profile pictures** | Built-in gallery plus your own images. Any image dropped into `profile_pictures` becomes an option. |
+| 🎨 **Light, Dark or System** | Follows the Windows theme live — title bar included. |
+| 🌍 **10 languages** | Português, English, Español, Français, Deutsch, Italiano, Русский, 日本語, 中文, 한국어. |
+| 📦 **Fully portable** | A single `.exe`. All data lives next to it — carry it on a USB drive. |
+| ⇩ **Profile import** | Finds Claude profiles that already exist on the machine (or another `perfis.db`) and imports them. |
+| 🧨 **Danger zone** | Erase all Multi Claude data behind a typed confirmation. |
+| 📐 **Responsive layout** | One or two columns depending on window size; remembers its size and position. |
 
 <div align="center">
-<img src="docs/img/principal-escuro.png" width="420" alt="Tema escuro">
-<img src="docs/img/fotos.png" width="380" alt="Fotos de perfil">
+<img src="docs/img/principal-escuro.png" width="420" alt="Dark theme">
+<img src="docs/img/fotos.png" width="380" alt="Profile pictures">
 </div>
 
 ## ⬇️ Download
 
-1. Baixe **[`Multi-Claude-Portable.exe`](https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe)**.
-2. Coloque numa pasta só dele (ex.: `Documentos\Multi Claude`) — é lá que ficarão os seus dados.
-3. Abra. Na primeira vez ele pergunta o idioma e oferece importar perfis que já existam.
+1. Download **[`Multi-Claude-Portable.exe`](https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe)**.
+2. Put it in a folder of its own (e.g. `Documents\Multi Claude`) — that's where your data will be stored.
+3. Run it. On first launch it asks for your language and offers to import any profiles it finds.
 
-> O Windows SmartScreen pode avisar que o arquivo é de um editor desconhecido (o executável não é assinado). Clique em **Mais informações → Executar assim mesmo**. O código-fonte completo está neste repositório, se quiser conferir ou gerar o seu próprio `.exe`.
+> Windows SmartScreen may warn about an unknown publisher (the executable is not code-signed). Click **More info → Run anyway**. The full source code is in this repository if you want to review it or build your own `.exe`.
 
-### Requisitos
+### Requirements
 
-- Windows 10 ou 11
-- [Claude Desktop](https://claude.ai/download) instalado
+- Windows 10 or 11
+- [Claude Desktop](https://claude.ai/download) installed
 
-## 🚀 Como usar
+## 🚀 Usage
 
-1. **+ Novo perfil** → dê um nome e escolha uma foto.
-2. **Entrar** → na janela do Claude que abrir, clique em *Continuar com Google* e escolha a conta.
-   Se o navegador perguntar, clique em *Abrir Claude*. O resto é automático.
-3. Depois de logado, use **Abrir** / **Fechar**. No menu **⋯** ficam *Foto de perfil*, *Renomear*, *Pasta de dados*, *Sair da conta* e *Excluir*.
+1. **+ New profile** → give it a name and pick a picture.
+2. **Sign in** → in the Claude window that opens, click *Continue with Google* and choose the account.
+   If the browser asks, click *Open Claude*. The rest is automatic.
+3. Once signed in, use **Open** / **Close**. The **⋯** menu holds *Profile picture*, *Rename*, *Data folder*, *Sign out* and *Delete*.
 
 <div align="center">
-<img src="docs/img/boas-vindas.png" width="300" alt="Boas-vindas">
-<img src="docs/img/configuracoes.png" width="260" alt="Configurações">
+<img src="docs/img/boas-vindas.png" width="300" alt="Welcome screen">
+<img src="docs/img/configuracoes.png" width="260" alt="Settings">
 </div>
 
-## ⚙️ Como funciona
+## ⚙️ How it works
 
-- Cada perfil roda o Claude Desktop com `--user-data-dir=<pasta do perfil>`, então logins e sessões ficam isolados.
-- **Login:** o navegador devolve o login por um link `claude://`. O Claude da Microsoft Store registra esse protocolo no próprio pacote, então o Windows sempre o entrega ao Claude principal — por um instante ele inicia um `Claude.exe` com o link na linha de comando. Durante o login, o Multi Claude observa os processos novos, lê esse link, encerra o processo passageiro (para o Claude principal não abrir) e entrega o link ao Claude do perfil.
-  Nada é enviado para fora do seu computador.
-- **Status:** "conectado" vem do log do próprio Claude do perfil; "aberto" vem dos processos em execução.
-- **Sair da conta** fecha o Claude do perfil e apaga cookies e tokens só daquele perfil.
+- Each profile runs Claude Desktop with `--user-data-dir=<profile folder>`, so sign-ins and sessions stay isolated.
+- **Sign-in:** the browser hands the sign-in back through a `claude://` link. The Microsoft Store build of Claude registers that protocol inside its own package, so Windows always delivers it to the main Claude — for a moment it starts a `Claude.exe` with the link on its command line. While a sign-in is in progress, Multi Claude watches for new processes, reads that link, ends the short-lived process (so the main Claude doesn't pop up) and hands the link to the profile's Claude.
+  Nothing ever leaves your computer.
+- **Status:** "signed in" comes from the profile's own Claude log; "open" comes from the running processes.
+- **Sign out** closes the profile's Claude and deletes cookies and tokens for that profile only.
 
-### Onde ficam os dados (modo portátil)
+### Where data lives (portable mode)
 
 ```
 Multi-Claude-Portable.exe
-perfis.db            ← perfis, idioma, tema (SQLite)
-log.txt              ← registro de diagnóstico
-dados\<perfil>\      ← dados do Claude de cada perfil
-profile_pictures\    ← fotos padrão + as que você enviar (usuario_*)
+perfis.db            ← profiles, language, theme (SQLite)
+log.txt              ← diagnostic log
+dados\<profile>\     ← each profile's Claude data
+profile_pictures\    ← default pictures + the ones you add (usuario_*)
 ```
 
-Os caminhos dentro da pasta do programa são salvos como relativos — dá para mover a pasta inteira de lugar ou de computador.
+Paths inside the program folder are stored as relative paths, so you can move the whole folder to another place or another computer.
 
-## 🛠️ Rodar e compilar a partir do código
+## 🛠️ Run and build from source
 
 ```bash
 pip install pillow pyinstaller
-pythonw "Multi Claude.pyw"          # roda direto
-python recursos/build_exe.py        # gera dist/Multi Claude.exe (portátil, arquivo único)
+pythonw "Multi Claude.pyw"          # run directly
+python recursos/build_exe.py        # builds dist/Multi Claude.exe (portable, single file)
 ```
 
-O `.exe` gerado leva apenas o ícone e as fotos padrão — nenhum dado de usuário.
+The generated `.exe` only bundles the icon and the default pictures — never any user data.
 
 ```
-Multi Claude.pyw        código do programa
-recursos/               ícone e script de build
-profile_pictures/       fotos de perfil padrão
-docs/                   site (GitHub Pages)
-LICENSE · NOTICE        licença GPL-3.0 + termos de atribuição
+Multi Claude.pyw        application source
+recursos/               icon and build script
+profile_pictures/       default profile pictures
+docs/                   website (GitHub Pages)
+LICENSE · NOTICE        GPL-3.0 license + attribution terms
 ```
 
-## 📄 Licença e créditos
+## 📄 License & credits
 
-**Multi Claude © 2026 [Richard KPL](https://github.com/RichardKPL)** — software livre sob a **[GPL-3.0](LICENSE)** com os termos adicionais do arquivo **[NOTICE](NOTICE)**.
+**Multi Claude © 2026 [Richard KPL](https://github.com/RichardKPL)** — free software under the **[GPL-3.0](LICENSE)** with the additional terms in **[NOTICE](NOTICE)**.
 
-Você pode usar, estudar, modificar e redistribuir. Se publicar uma versão modificada, ela **precisa**:
+You may use, study, modify and redistribute it. If you publish a modified version, it **must**:
 
-- continuar com código aberto, sob a GPL-3.0;
-- manter visível no programa e no README: *"Baseado no Multi Claude, criado por Richard KPL"* com link para este repositório;
-- manter os arquivos `LICENSE` e `NOTICE`;
-- deixar claro que é uma versão modificada.
+- remain open source under the GPL-3.0;
+- keep visible, in the app and in the README: *"Based on Multi Claude, created by Richard KPL"* with a link to this repository;
+- keep the `LICENSE` and `NOTICE` files;
+- be clearly marked as a modified version.
 
-> **Aviso:** "Claude" e "Claude Desktop" são marcas da Anthropic, PBC. O Multi Claude é um projeto independente e **não tem ligação, aprovação ou patrocínio da Anthropic**. Use respeitando os [termos de uso do Claude](https://www.anthropic.com/legal/consumer-terms).
-
----
-
-## English
-
-**Multi Claude** runs several Claude Desktop accounts side by side, each in its own window.
-
-- Unlimited profiles, each one an isolated Claude Desktop (`--user-data-dir`).
-- Automatic Google sign-in routed to the right profile, without popping up your main Claude.
-- Live status (signed in / open), open & close per profile, sign out, profile pictures.
-- Light / Dark / System theme, 10 languages, responsive layout.
-- Fully portable single `.exe` — all data lives next to it. Import existing profiles; erase everything from the danger zone.
-
-**[Download Multi-Claude-Portable.exe](https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe)** · Windows 10/11 · requires [Claude Desktop](https://claude.ai/download).
-
-Licensed under **GPL-3.0** with additional attribution terms ([NOTICE](NOTICE)): forks and modified versions must stay open source and keep the credit *"Based on Multi Claude, created by Richard KPL"* visible in the app and README.
-Not affiliated with Anthropic.
+> **Disclaimer:** "Claude" and "Claude Desktop" are trademarks of Anthropic, PBC. Multi Claude is an independent project and is **not affiliated with, endorsed by or sponsored by Anthropic**. Please use it in accordance with [Claude's terms of service](https://www.anthropic.com/legal/consumer-terms).
