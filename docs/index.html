@@ -198,24 +198,27 @@
     var browserCode = browser.toLowerCase().split("-")[0].split("_")[0];
     var initial = stored && supported.indexOf(stored) >= 0 ? stored : (supported.indexOf(browserCode) >= 0 ? browserCode : "en");
     var translations = {
-      "Features":"Recursos", "How it works":"Como usar", "Free · ":"Gratuito · ", "Open source":"Código aberto",
-      "Portable":"Portátil", "Multiple Claude accounts.":"Várias contas do Claude.", "At the same time.":"Ao mesmo tempo.",
-      "Everything you need":"Tudo o que você precisa", "Three simple steps":"Em três passos", "Take a look inside":"Por dentro",
-      "Ready to use more than one account?":"Pronto para usar mais de uma conta?", "Download for Windows":"Baixar para Windows",
-      "Download Multi Claude":"Baixar Multi Claude", "Source code":"Código-fonte", "Sign in":"Entrar",
-      "Choose your language on first launch.":"Na primeira vez, escolha o idioma.", "Dark theme":"Tema escuro",
-      "Profile pictures":"Fotos de perfil", "First launch":"Primeira abertura"
+      pt: {"Features":"Recursos","How it works":"Como usar","Everything you need":"Tudo o que você precisa","Three simple steps":"Em três passos","Take a look inside":"Por dentro","Ready to use more than one account?":"Pronto para usar mais de uma conta?","Download for Windows":"Baixar para Windows","Download Multi Claude":"Baixar Multi Claude","Source code":"Código-fonte","Sign in":"Entrar","Dark theme":"Tema escuro","Profile pictures":"Fotos de perfil","First launch":"Primeira abertura","Free":"Gratuito","Open source":"Código aberto","Portable":"Portátil","Multiple Claude accounts.":"Várias contas do Claude.","At the same time.":"Ao mesmo tempo."},
+      es: {"Features":"Funciones","How it works":"Cómo funciona","Everything you need":"Todo lo que necesitas","Three simple steps":"Tres pasos sencillos","Take a look inside":"Mira por dentro","Ready to use more than one account?":"¿Listo para usar más de una cuenta?","Download for Windows":"Descargar para Windows","Download Multi Claude":"Descargar Multi Claude","Source code":"Código fuente","Sign in":"Iniciar sesión","Dark theme":"Tema oscuro","Profile pictures":"Fotos de perfil","First launch":"Primera apertura","Free":"Gratis","Open source":"Código abierto","Portable":"Portátil","Multiple Claude accounts.":"Varias cuentas de Claude.","At the same time.":"Al mismo tiempo."},
+      fr: {"Features":"Fonctionnalités","How it works":"Comment ça marche","Everything you need":"Tout ce dont vous avez besoin","Three simple steps":"Trois étapes simples","Take a look inside":"Découvrez l’intérieur","Ready to use more than one account?":"Prêt à utiliser plusieurs comptes ?","Download for Windows":"Télécharger pour Windows","Download Multi Claude":"Télécharger Multi Claude","Source code":"Code source","Sign in":"Se connecter","Dark theme":"Thème sombre","Profile pictures":"Photos de profil","First launch":"Premier lancement","Free":"Gratuit","Open source":"Open source","Portable":"Portable","Multiple Claude accounts.":"Plusieurs comptes Claude.","At the same time.":"En même temps."},
+      de: {"Features":"Funktionen","How it works":"So funktioniert es","Everything you need":"Alles, was du brauchst","Three simple steps":"Drei einfache Schritte","Take a look inside":"Ein Blick ins Innere","Ready to use more than one account?":"Bereit für mehrere Konten?","Download for Windows":"Für Windows herunterladen","Download Multi Claude":"Multi Claude herunterladen","Source code":"Quellcode","Sign in":"Anmelden","Dark theme":"Dunkles Design","Profile pictures":"Profilbilder","First launch":"Erster Start","Free":"Kostenlos","Open source":"Open Source","Portable":"Portabel","Multiple Claude accounts.":"Mehrere Claude-Konten.","At the same time.":"Gleichzeitig."},
+      it: {"Features":"Funzionalità","How it works":"Come funziona","Everything you need":"Tutto ciò che ti serve","Three simple steps":"Tre semplici passaggi","Take a look inside":"Guarda dentro","Ready to use more than one account?":"Pronto a usare più account?","Download for Windows":"Scarica per Windows","Download Multi Claude":"Scarica Multi Claude","Source code":"Codice sorgente","Sign in":"Accedi","Dark theme":"Tema scuro","Profile pictures":"Immagini del profilo","First launch":"Primo avvio","Free":"Gratuito","Open source":"Open source","Portable":"Portatile","Multiple Claude accounts.":"Più account Claude.","At the same time.":"Allo stesso tempo."},
+      ru: {"Features":"Возможности","How it works":"Как это работает","Everything you need":"Всё необходимое","Three simple steps":"Три простых шага","Take a look inside":"Загляните внутрь","Ready to use more than one account?":"Готовы использовать несколько аккаунтов?","Download for Windows":"Скачать для Windows","Download Multi Claude":"Скачать Multi Claude","Source code":"Исходный код","Sign in":"Войти","Dark theme":"Тёмная тема","Profile pictures":"Изображения профиля","First launch":"Первый запуск","Free":"Бесплатно","Open source":"Открытый исходный код","Portable":"Портативный","Multiple Claude accounts.":"Несколько аккаунтов Claude.","At the same time.":"Одновременно."},
+      ja: {"Features":"機能","How it works":"使い方","Everything you need":"必要なものがすべて揃っています","Three simple steps":"3つの簡単な手順","Take a look inside":"中を見てみる","Ready to use more than one account?":"複数のアカウントを使いませんか？","Download for Windows":"Windows版をダウンロード","Download Multi Claude":"Multi Claudeをダウンロード","Source code":"ソースコード","Sign in":"サインイン","Dark theme":"ダークテーマ","Profile pictures":"プロフィール画像","First launch":"初回起動","Free":"無料","Open source":"オープンソース","Portable":"ポータブル","Multiple Claude accounts.":"複数のClaudeアカウント。","At the same time.":"同時に。"},
+      zh: {"Features":"功能","How it works":"使用方法","Everything you need":"你需要的一切","Three simple steps":"三个简单步骤","Take a look inside":"看看内部","Ready to use more than one account?":"准备好使用多个账户了吗？","Download for Windows":"下载 Windows 版","Download Multi Claude":"下载 Multi Claude","Source code":"源代码","Sign in":"登录","Dark theme":"深色主题","Profile pictures":"个人头像","First launch":"首次启动","Free":"免费","Open source":"开源","Portable":"便携","Multiple Claude accounts.":"多个 Claude 账户。","At the same time.":"同时运行。"},
+      ko: {"Features":"기능","How it works":"사용 방법","Everything you need":"필요한 모든 것","Three simple steps":"간단한 3단계","Take a look inside":"내부 살펴보기","Ready to use more than one account?":"여러 계정을 사용할 준비가 되셨나요?","Download for Windows":"Windows용 다운로드","Download Multi Claude":"Multi Claude 다운로드","Source code":"소스 코드","Sign in":"로그인","Dark theme":"어두운 테마","Profile pictures":"프로필 사진","First launch":"첫 실행","Free":"무료","Open source":"오픈 소스","Portable":"포터블","Multiple Claude accounts.":"여러 Claude 계정.","At the same time.":"동시에."}
     };
-    var reverse = {};
-    Object.keys(translations).forEach(function (key) { reverse[translations[key]] = key; });
+    var originalText = [];
     function setLanguage(lang) {
       // English is the fallback copy for languages not yet translated on the website.
-      var table = lang === "pt" ? translations : reverse;
       var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-      var node;
+      var node, index = 0, table = translations[lang] || {};
       while ((node = walker.nextNode())) {
-        var value = node.nodeValue.trim();
-        if (table[value]) node.nodeValue = node.nodeValue.replace(value, table[value]);
+        if (!originalText[index]) originalText[index] = node.nodeValue;
+        var value = originalText[index].trim();
+        if (table[value]) node.nodeValue = originalText[index].replace(value, table[value]);
+        else node.nodeValue = originalText[index];
+        index++;
       }
       document.documentElement.lang = lang;
       picker.value = lang;
