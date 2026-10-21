@@ -46,7 +46,7 @@
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   .nav-links a:hover { color: var(--texto); }
   .language-picker { display: inline-flex; align-items: center; gap: 7px; background: var(--chip); border: 1px solid var(--borda); border-radius: 999px; padding: 2px 8px 2px 9px; }
-  #idioma-bandeira { font-size: 19px; line-height: 1; }
+  #idioma-bandeira { width: 23px; height: 16px; object-fit: cover; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.14); }
   #idioma { background: transparent; border: 0; color: var(--texto); padding: 6px 2px; cursor: pointer; font: inherit; font-size: 13px; outline: none; }
   #tema { background: var(--chip); border: 1px solid var(--borda); color: var(--texto); border-radius: 999px;
           width: 36px; height: 36px; cursor: pointer; font-size: 16px; }
@@ -119,7 +119,7 @@
       <a class="esconde" href="#recursos">Features</a>
       <a class="esconde" href="#como">How it works</a>
       <a href="https://github.com/RichardKPL/multi-claude">GitHub</a>
-      <div class="language-picker"><span id="idioma-bandeira" aria-hidden="true">🇬🇧</span><label class="sr-only" for="idioma">Language</label><select id="idioma" aria-label="Language">
+      <div class="language-picker"><img id="idioma-bandeira" src="img/flags/en.svg" alt=""><label class="sr-only" for="idioma">Language</label><select id="idioma" aria-label="Language">
         <option value="pt">🇧🇷 Português</option><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option>
         <option value="fr">🇫🇷 Français</option><option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option>
         <option value="ru">🇷🇺 Русский</option><option value="ja">🇯🇵 日本語</option><option value="zh">🇨🇳 中文</option><option value="ko">🇰🇷 한국어</option>
@@ -194,7 +194,6 @@
   (function () {
     var picker = document.getElementById("idioma");
     var flag = document.getElementById("idioma-bandeira");
-    var flags = {pt:"🇧🇷", en:"🇬🇧", es:"🇪🇸", fr:"🇫🇷", de:"🇩🇪", it:"🇮🇹", ru:"🇷🇺", ja:"🇯🇵", zh:"🇨🇳", ko:"🇰🇷"};
     var supported = ["pt", "en", "es", "fr", "de", "it", "ru", "ja", "zh", "ko"];
     var stored = null;
     try { stored = localStorage.getItem("site-language"); } catch (e) {}
@@ -226,7 +225,7 @@
       }
       document.documentElement.lang = lang;
       picker.value = lang;
-      flag.textContent = flags[lang] || flags.en;
+      flag.src = "img/flags/" + (supported.indexOf(lang) >= 0 ? lang : "en") + ".svg";
       try { localStorage.setItem("site-language", lang); } catch (e) {}
     }
     picker.addEventListener("change", function () { setLanguage(this.value); });
