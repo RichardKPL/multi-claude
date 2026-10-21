@@ -107,6 +107,10 @@ LICENSE · NOTICE        GPL-3.0 license + attribution terms
 
 ## 📄 License & credits
 
+## 🌐 Website
+
+The website is published from the `docs/` folder by the GitHub Actions workflow in `.github/workflows/pages.yml`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The site detects the visitor's browser language on first visit, falls back to English when it is not supported, and also provides a manual language selector.
+
 **Multi Claude © 2026 [Richard KPL](https://github.com/RichardKPL)** — free software under the **[GPL-3.0](LICENSE)** with the additional terms in **[NOTICE](NOTICE)**.
 
 You may use, study, modify and redistribute it. If you publish a modified version, it **must**:
