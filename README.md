@@ -16,7 +16,7 @@
 [**How it works**](#how-it-works) ·
 [**License**](#license--credits)
 
-<img src="docs/img/principal-claro.png" alt="Multi Claude main window" width="860">
+<img src="docs/img/en/principal-claro.png" alt="Multi Claude main window" width="860">
 
 </div>
 
@@ -38,8 +38,8 @@
 | 📐 **Responsive layout** | One or two columns depending on window size; remembers its size and position. |
 
 <div align="center">
-<img src="docs/img/principal-escuro.png" width="420" alt="Dark theme">
-<img src="docs/img/fotos.png" width="380" alt="Profile pictures">
+<img src="docs/img/en/principal-escuro.png" width="420" alt="Dark theme">
+<img src="docs/img/en/fotos.png" width="380" alt="Profile pictures">
 </div>
 
 ## ⬇️ Download
@@ -63,8 +63,8 @@
 3. Once signed in, use **Open** / **Close**. The **⋯** menu holds *Profile picture*, *Rename*, *Data folder*, *Sign out* and *Delete*.
 
 <div align="center">
-<img src="docs/img/boas-vindas.png" width="300" alt="Welcome screen">
-<img src="docs/img/configuracoes.png" width="260" alt="Settings">
+<img src="docs/img/en/boas-vindas.png" width="300" alt="Welcome screen">
+<img src="docs/img/en/configuracoes.png" width="260" alt="Settings">
 </div>
 
 ## ⚙️ How it works
@@ -105,11 +105,13 @@ docs/                   website (GitHub Pages)
 LICENSE · NOTICE        GPL-3.0 license + attribution terms
 ```
 
-## 📄 License & credits
-
 ## 🌐 Website
 
 The website is published from the `docs/` folder by the GitHub Actions workflow in `.github/workflows/pages.yml`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The site detects the visitor's browser language on first visit, falls back to English when it is not supported, and also provides a manual language selector.
+
+Screenshots in `docs/img/<language>/` are captured from the real app with fictional profiles. They follow the selected website language and fall back to English if an image is unavailable. The README always uses English screenshots. To regenerate all ten sets on Windows with Pillow installed, run `python recursos/capture_screenshots.py` (or append language codes to regenerate specific sets). The capture tool uses a temporary database and disables Claude discovery, process monitoring and registry restoration.
+
+## 📄 License & credits
 
 **Multi Claude © 2026 [Richard KPL](https://github.com/RichardKPL)** — free software under the **[GPL-3.0](LICENSE)** with the additional terms in **[NOTICE](NOTICE)**.
 
