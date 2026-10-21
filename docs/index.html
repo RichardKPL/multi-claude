@@ -1,0 +1,210 @@
+<!doctype html>
+<!--
+  Multi Claude — https://github.com/RichardKPL/multi-claude
+  Copyright (C) 2026 Richard KPL — GPL-3.0 (see LICENSE and NOTICE)
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi Claude — várias contas do Claude Desktop</title>
+<meta name="description" content="Rode várias contas do Claude Desktop ao mesmo tempo, cada uma na sua janela. Portátil, gratuito e de código aberto.">
+<meta name="author" content="Richard KPL">
+<meta property="og:title" content="Multi Claude">
+<meta property="og:description" content="Várias contas do Claude Desktop, cada uma na sua janela. Portátil e de código aberto.">
+<meta property="og:image" content="img/principal-claro.png">
+<link rel="icon" href="icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2ec; --painel: #ffffff; --texto: #1f1e1d; --sub: #6d6a62; --borda: #e2ded5;
+    --accent: #d97757; --accent-2: #c4623f; --chip: #f1eee7; --sombra: 0 24px 60px -24px rgba(60, 40, 20, .35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141312; --painel: #1f1e1c; --texto: #f5f4ef; --sub: #a39f95; --borda: #34322e;
+      --chip: #2a2926; --sombra: 0 24px 60px -24px rgba(0, 0, 0, .7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141312; --painel: #1f1e1c; --texto: #f5f4ef; --sub: #a39f95; --borda: #34322e;
+    --chip: #2a2926; --sombra: 0 24px 60px -24px rgba(0, 0, 0, .7);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--texto); font-family: Inter, "Segoe UI", system-ui, sans-serif;
+         line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .marca { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; }
+  .marca img { width: 32px; height: 32px; border-radius: 8px; }
+  .nav-links { display: flex; gap: 20px; align-items: center; font-size: 14px; color: var(--sub); }
+  .nav-links a { text-decoration: none; }
+  .nav-links a:hover { color: var(--texto); }
+  #tema { background: var(--chip); border: 1px solid var(--borda); color: var(--texto); border-radius: 999px;
+          width: 36px; height: 36px; cursor: pointer; font-size: 16px; }
+
+  .hero { text-align: center; padding: 56px 0 24px; }
+  .selo { display: inline-flex; gap: 8px; align-items: center; background: var(--chip); border: 1px solid var(--borda);
+          padding: 6px 14px; border-radius: 999px; font-size: 13px; color: var(--sub); }
+  .selo b { color: var(--accent); }
+  h1 { font-size: clamp(38px, 7vw, 68px); line-height: 1.05; letter-spacing: -0.03em; margin: 22px 0 14px; font-weight: 800; }
+  h1 span { background: linear-gradient(120deg, var(--accent), #e9a37f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--sub); max-width: 640px; margin: 0 auto; }
+  .acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 34px 0 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 14px; font-weight: 700;
+         text-decoration: none; font-size: 16px; transition: transform .15s ease, box-shadow .15s ease, background .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-principal { background: var(--accent); color: #fff; box-shadow: 0 12px 30px -10px rgba(217, 119, 87, .7); }
+  .btn-principal:hover { background: var(--accent-2); }
+  .btn-sec { background: var(--painel); border: 1px solid var(--borda); }
+  .btn small { font-weight: 500; opacity: .85; font-size: 13px; }
+  .info-dl { font-size: 13px; color: var(--sub); }
+
+  .vitrine { margin: 44px auto 0; max-width: 980px; border-radius: 18px; overflow: hidden; border: 1px solid var(--borda);
+             box-shadow: var(--sombra); background: var(--painel); }
+  .vitrine img { display: block; width: 100%; height: auto; }
+
+  section { padding: 76px 0 0; }
+  h2 { font-size: clamp(26px, 4vw, 38px); letter-spacing: -0.02em; margin: 0 0 10px; text-align: center; }
+  .sub-h2 { text-align: center; color: var(--sub); margin: 0 auto 38px; max-width: 560px; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card { background: var(--painel); border: 1px solid var(--borda); border-radius: 16px; padding: 22px; }
+  .card .ic { font-size: 26px; }
+  .card h3 { margin: 10px 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--sub); font-size: 14.5px; }
+
+  .passos { counter-reset: p; display: grid; gap: 14px; max-width: 720px; margin: 0 auto; }
+  .passo { display: flex; gap: 16px; align-items: flex-start; background: var(--painel); border: 1px solid var(--borda);
+           border-radius: 16px; padding: 18px 20px; }
+  .passo::before { counter-increment: p; content: counter(p); flex: none; width: 34px; height: 34px; border-radius: 50%;
+                   background: var(--accent); color: #fff; font-weight: 800; display: grid; place-items: center; }
+  .passo b { display: block; }
+  .passo span { color: var(--sub); font-size: 14.5px; }
+
+  .galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; align-items: start; }
+  .galeria figure { margin: 0; background: var(--painel); border: 1px solid var(--borda); border-radius: 16px; overflow: hidden; }
+  .galeria img { width: 100%; display: block; }
+  .galeria figcaption { padding: 10px 14px; font-size: 13px; color: var(--sub); }
+
+  .cta { margin-top: 76px; text-align: center; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+         color: #fff; border-radius: 24px; padding: 48px 22px; }
+  .cta h2 { color: #fff; }
+  .cta p { opacity: .9; margin: 0 0 26px; }
+  .cta .btn { background: #fff; color: var(--accent-2); }
+
+  footer { padding: 46px 0 40px; color: var(--sub); font-size: 13.5px; text-align: center; }
+  footer a { color: var(--accent); }
+  .aviso { max-width: 680px; margin: 10px auto 0; font-size: 12.5px; }
+
+  @media (max-width: 640px) {
+    .nav-links a.esconde { display: none; }
+    .hero { padding-top: 30px; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="marca" href="#"><img src="icone.png" alt="">Multi Claude</a>
+    <div class="nav-links">
+      <a class="esconde" href="#recursos">Recursos</a>
+      <a class="esconde" href="#como">Como usar</a>
+      <a href="https://github.com/RichardKPL/multi-claude">GitHub</a>
+      <button id="tema" aria-label="Alternar tema" title="Alternar tema">◐</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="selo">🆓 Gratuito · <b>Código aberto</b> · Portátil</div>
+    <h1>Várias contas do Claude.<br><span>Ao mesmo tempo.</span></h1>
+    <p class="lead">O Multi Claude abre cada conta do Claude Desktop numa janela separada, com login, sessões e configurações próprias. Um único <code>.exe</code>, sem instalação.</p>
+    <div class="acoes">
+      <a class="btn btn-principal" id="baixar" href="https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe">
+        ⬇ Baixar para Windows <small id="versao">portátil · .exe</small>
+      </a>
+      <a class="btn btn-sec" href="https://github.com/RichardKPL/multi-claude">★ Ver no GitHub</a>
+    </div>
+    <div class="info-dl">Windows 10 e 11 · requer o <a href="https://claude.ai/download">Claude Desktop</a> instalado</div>
+    <div class="vitrine"><img src="img/principal-claro.png" alt="Tela principal do Multi Claude" loading="eager"></div>
+  </header>
+
+  <section id="recursos">
+    <h2>Tudo o que você precisa</h2>
+    <p class="sub-h2">Feito para quem usa mais de uma conta do Claude — pessoal, trabalho, estudos.</p>
+    <div class="grade">
+      <div class="card"><div class="ic">👥</div><h3>Perfis ilimitados</h3><p>Cada perfil é um Claude Desktop isolado, com seus próprios logins e sessões.</p></div>
+      <div class="card"><div class="ic">🔐</div><h3>Login com Google automático</h3><p>Escolha a conta no navegador e o login vai direto para o perfil certo.</p></div>
+      <div class="card"><div class="ic">🟢</div><h3>Status ao vivo</h3><p>Veja quem está conectado e aberto. Abra, feche ou saia da conta com um clique.</p></div>
+      <div class="card"><div class="ic">🖼️</div><h3>Fotos de perfil</h3><p>Galeria inclusa ou suas próprias imagens — qualquer imagem da pasta vira opção.</p></div>
+      <div class="card"><div class="ic">🎨</div><h3>Claro, Escuro ou Sistema</h3><p>Acompanha o tema do Windows ao vivo, até a barra de título.</p></div>
+      <div class="card"><div class="ic">🌍</div><h3>10 idiomas</h3><p>Português, English, Español, Français, Deutsch, Italiano, Русский, 日本語, 中文, 한국어.</p></div>
+      <div class="card"><div class="ic">📦</div><h3>100% portátil</h3><p>Todos os dados ficam ao lado do <code>.exe</code>. Leve num pendrive.</p></div>
+      <div class="card"><div class="ic">⇩</div><h3>Importa o que já existe</h3><p>Encontra perfis do Claude que já estão na máquina e importa em segundos.</p></div>
+    </div>
+  </section>
+
+  <section id="como">
+    <h2>Em três passos</h2>
+    <p class="sub-h2">Do download à segunda conta aberta em menos de um minuto.</p>
+    <div class="passos">
+      <div class="passo"><div><b>Baixe e abra</b><span>Coloque o <code>.exe</code> numa pasta só dele. Na primeira vez, escolha o idioma.</span></div></div>
+      <div class="passo"><div><b>Crie um perfil</b><span>Dê um nome, escolha uma foto e clique em <b style="display:inline">Entrar</b>.</span></div></div>
+      <div class="passo"><div><b>Escolha a conta</b><span>Continue com Google no navegador. Se ele perguntar, clique em “Abrir Claude”. Pronto.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Por dentro</h2>
+    <p class="sub-h2">Interface limpa, nos dois temas.</p>
+    <div class="galeria">
+      <figure><img src="img/principal-escuro.png" alt="Tema escuro" loading="lazy"><figcaption>Tema escuro</figcaption></figure>
+      <figure><img src="img/fotos.png" alt="Fotos de perfil" loading="lazy"><figcaption>Fotos de perfil</figcaption></figure>
+      <figure><img src="img/boas-vindas.png" alt="Boas-vindas" loading="lazy"><figcaption>Primeira abertura</figcaption></figure>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Pronto para usar mais de uma conta?</h2>
+    <p>Gratuito, de código aberto e sem instalação.</p>
+    <a class="btn" href="https://github.com/RichardKPL/multi-claude/releases/latest/download/Multi-Claude-Portable.exe">⬇ Baixar Multi Claude</a>
+  </div>
+
+  <footer>
+    <div>Multi Claude © 2026 <a href="https://github.com/RichardKPL">Richard KPL</a> · <a href="https://github.com/RichardKPL/multi-claude/blob/main/LICENSE">GPL-3.0</a> · <a href="https://github.com/RichardKPL/multi-claude">Código-fonte</a></div>
+    <p class="aviso">"Claude" e "Claude Desktop" são marcas da Anthropic, PBC. O Multi Claude é um projeto independente, sem ligação, aprovação ou patrocínio da Anthropic.</p>
+  </footer>
+</div>
+
+<script>
+  // Tema: segue o sistema; o botão alterna e lembra a escolha.
+  (function () {
+    var raiz = document.documentElement, salvo = null;
+    try { salvo = localStorage.getItem("tema"); } catch (e) {}
+    if (salvo) raiz.setAttribute("data-theme", salvo);
+    document.getElementById("tema").addEventListener("click", function () {
+      var escuro = raiz.getAttribute("data-theme") ? raiz.getAttribute("data-theme") === "dark"
+        : matchMedia("(prefers-color-scheme: dark)").matches;
+      var novo = escuro ? "light" : "dark";
+      raiz.setAttribute("data-theme", novo);
+      try { localStorage.setItem("tema", novo); } catch (e) {}
+    });
+  })();
+  // Mostra a versão e o tamanho do último release.
+  fetch("https://api.github.com/repos/RichardKPL/multi-claude/releases/latest")
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (rel) {
+      if (!rel) return;
+      var exe = (rel.assets || []).filter(function (a) { return /\.exe$/i.test(a.name); })[0];
+      var mb = exe ? " · " + (exe.size / 1048576).toFixed(0) + " MB" : "";
+      document.getElementById("versao").textContent = rel.tag_name + " · portátil" + mb;
+      if (exe) document.getElementById("baixar").href = exe.browser_download_url;
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>

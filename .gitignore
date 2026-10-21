@@ -1,0 +1,15 @@
+# Dados do usuário (nunca vão para o repositório)
+perfis.db
+perfis.db-journal
+log.txt
+log.txt.old
+dados/
+profile_pictures/usuario_*
+
+# Build
+build/
+dist/
+*.exe
+*.spec
+__pycache__/
+*.pyc

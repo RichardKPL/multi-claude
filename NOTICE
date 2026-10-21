@@ -1,0 +1,56 @@
+Multi Claude
+Copyright (C) 2026 Richard KPL — https://github.com/RichardKPL
+Original project: https://github.com/RichardKPL/multi-claude
+
+This program is free software, licensed under the GNU General Public License
+version 3 (see LICENSE), with the following ADDITIONAL TERMS under section 7
+of that license.
+
+-------------------------------------------------------------------------------
+ADDITIONAL TERMS (GPL-3.0, section 7)
+-------------------------------------------------------------------------------
+
+(b) Preservation of author attribution.
+    Any copy, modified version or work based on this program that you convey
+    MUST keep, in a reasonable and visible place:
+
+      1. In the user interface, where the original shows it (the "About"
+         section and the footer), a notice reading at least:
+             "Based on Multi Claude, created by Richard KPL
+              (https://github.com/RichardKPL)"
+      2. In the README or equivalent documentation, the same notice with a
+         link to the original project:
+             https://github.com/RichardKPL/multi-claude
+      3. This NOTICE file, unaltered, together with the LICENSE file.
+
+    You may add your own copyright notices for your changes, but you may not
+    remove or hide the ones above.
+
+(c) Marking of modified versions.
+    Modified versions must be clearly marked as different from the original
+    (for example, by using a different name or a "fork of Multi Claude"
+    description), so they are not mistaken for the original release by
+    Richard KPL.
+
+(e) No use of the author's name for endorsement.
+    The name "Richard KPL" may not be used to promote or endorse modified
+    versions without prior written permission.
+
+-------------------------------------------------------------------------------
+TERMOS ADICIONAIS (resumo em português)
+-------------------------------------------------------------------------------
+Você pode usar, estudar, modificar e redistribuir este programa (GPL-3.0).
+Se publicar uma cópia ou versão modificada, você é obrigado a:
+  • manter o código aberto, sob a mesma licença GPL-3.0;
+  • manter visível, no programa (tela "Sobre" e rodapé) e no README, o aviso
+    "Baseado no Multi Claude, criado por Richard KPL" com link para
+    https://github.com/RichardKPL/multi-claude;
+  • manter este arquivo NOTICE e o LICENSE;
+  • deixar claro que é uma versão modificada, e não a original.
+
+-------------------------------------------------------------------------------
+Trademark notice
+-------------------------------------------------------------------------------
+"Claude" and "Claude Desktop" are trademarks of Anthropic, PBC. Multi Claude
+is an independent project and is not affiliated with, endorsed by or
+sponsored by Anthropic.
