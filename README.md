@@ -12,6 +12,7 @@
 [![Portable](https://img.shields.io/badge/portable-no%20install-5fa85e?style=for-the-badge)](#download)
 
 [**Website**](https://richardkpl.github.io/multi-claude/) ·
+[**Changelog**](https://richardkpl.github.io/multi-claude/changelog.html) ·
 [**Download**](https://github.com/RichardKPL/multi-claude/releases/latest) ·
 [**How it works**](#how-it-works) ·
 [**License**](#license--credits)
