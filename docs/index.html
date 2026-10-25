@@ -67,6 +67,8 @@
   .btn-sec { background: var(--painel); border: 1px solid var(--borda); }
   .btn small { font-weight: 500; opacity: .85; font-size: 13px; }
   .info-dl { font-size: 13px; color: var(--sub); }
+  .downloads-count { margin: 8px 0 0; font-size: 13px; color: var(--sub); }
+  .downloads-count[hidden] { display: none; }
 
   .vitrine { margin: 44px auto 0; max-width: 980px; border-radius: 18px; overflow: hidden; border: 1px solid var(--borda);
              box-shadow: var(--sombra); background: var(--painel); }
@@ -139,6 +141,7 @@
       </a>
       <a class="btn btn-sec" href="https://github.com/RichardKPL/multi-claude">★ <span data-i18n="github">View on GitHub</span></a>
     </div>
+    <p class="downloads-count" id="downloads-count" data-i18n="downloadCount" aria-live="polite" hidden></p>
     <div class="info-dl"><a href="https://claude.ai/download" data-i18n="requirements">Windows 10 and 11 · requires Claude Desktop</a></div>
     <div class="vitrine"><img data-screenshot="principal-claro.png" src="img/en/principal-claro.png" data-i18n-alt="mainAlt" alt="Multi Claude main window" loading="eager"></div>
   </header>

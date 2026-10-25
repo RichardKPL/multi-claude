@@ -7,6 +7,7 @@
   const root = document.documentElement;
   let language = "en";
   let release = null;
+  let downloadCount = null;
   function normalize(value) {
     const code = String(value || "").toLowerCase().split(/[-_]/)[0];
     return supported.includes(code) ? code : null;
@@ -25,6 +26,11 @@
     label.textContent = release
       ? [release.tag, t("portable"), release.mb ? release.mb + " MB" : ""].filter(Boolean).join(" · ")
       : t("portable") + " · .exe";
+  }
+  function renderDownloads(count) {
+    const label = document.getElementById("downloads-count");
+    label.textContent = t("downloadCount").replace("{count}", new Intl.NumberFormat(language).format(count));
+    label.hidden = false;
   }
   function setLanguage(value) {
     language = normalize(value) || "en";
@@ -53,6 +59,7 @@
     flag.onerror = function () { this.onerror = null; this.src = "img/flags/" + language + ".svg"; };
     flag.src = "https://flags.restcountries.com/v5/w160/" + countries[language] + ".png";
     renderRelease();
+    if (downloadCount !== null) renderDownloads(downloadCount);
   }
   picker.addEventListener("change", function () {
     setLanguage(this.value);
@@ -68,14 +75,20 @@
     root.dataset.theme = dark ? "light" : "dark";
     savePreference("tema", root.dataset.theme);
   });
-  fetch("https://api.github.com/repos/RichardKPL/multi-claude/releases/latest")
+  fetch("https://api.github.com/repos/RichardKPL/multi-claude/releases?per_page=100")
     .then(r => r.ok ? r.json() : null)
     .then(data => {
-      if (!data || !data.tag_name) return;
-      const exe = (data.assets || []).find(a => /\.exe$/i.test(a.name));
-      release = {tag: data.tag_name, mb: exe ? Math.round(exe.size / 1048576) : null};
+      if (!Array.isArray(data) || !data.length) return;
+      const releases = data;
+      const latest = releases[0];
+      const exe = (latest.assets || []).find(a => /\.exe$/i.test(a.name));
+      release = {tag: latest.tag_name, mb: exe ? Math.round(exe.size / 1048576) : null};
       if (exe) document.getElementById("baixar").href = exe.browser_download_url;
       renderRelease();
+      downloadCount = releases.reduce((total, item) => total + (item.assets || [])
+        .filter(asset => /\.exe$/i.test(asset.name))
+        .reduce((sum, asset) => sum + (Number(asset.download_count) || 0), 0), 0);
+      renderDownloads(downloadCount);
     })
     .catch(() => {});
 })();
